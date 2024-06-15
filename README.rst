@@ -61,6 +61,7 @@ The static site files will be generated in `out/`. You can serve that directory 
 
 
 .. code-block:: bash
+ For Docker based hosting use : 
 
   git clone https://github.com/proprietary/cftc-cot-viewer.git && \
         cd cftc-cot-viewer 
