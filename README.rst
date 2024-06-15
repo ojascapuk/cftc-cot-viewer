@@ -59,9 +59,9 @@ The static site files will be generated in `out/`. You can serve that directory 
 
     python3 -m http.server -d out
 
+ For Docker based hosting use : 
 
 .. code-block:: bash
- For Docker based hosting use : 
 
   git clone https://github.com/proprietary/cftc-cot-viewer.git && \
         cd cftc-cot-viewer 
