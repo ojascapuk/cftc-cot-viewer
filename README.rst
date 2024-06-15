@@ -59,7 +59,7 @@ The static site files will be generated in `out/`. You can serve that directory 
 
     python3 -m http.server -d out
 
-.. code-block:: bash
+
 
  For Docker based hosting use : 
 
