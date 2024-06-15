@@ -59,6 +59,18 @@ The static site files will be generated in `out/`. You can serve that directory 
 
     python3 -m http.server -d out
 
+
+.. code-block:: bash
+
+  git clone https://github.com/proprietary/cftc-cot-viewer.git && \
+        cd cftc-cot-viewer 
+  docker build -t cotviewer-app
+  docker run -p 8080:80 cotviewer-app
+
+The static site will be avialble at the host machine port 8080 :
+
+.. code-block:: bash
+
 ++++++++++++
 Contributing
 ++++++++++++
