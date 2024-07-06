@@ -1,29 +1,37 @@
+/* 
+This code defines an abstract class LibhackCustomError that extends the built-in Error class. It customizes the error 
+name to match the class name and restores the prototype chain to ensure compatibility with older JavaScript environments. 
+The class also ensures that stack traces work correctly by using 
+Error.captureStackTrace if available. This setup allows for creating custom error 
+classes that behave consistently across different environments.
+
+*/
+
 export abstract class LibhackCustomError extends Error {
-    constructor(message?: string, options?: ErrorOptions) {
-        super(message, options)
+  constructor(message?: string, options?: ErrorOptions) {
+    super(message, options);
+    // Calls the parent class (Error) constructor with the provided message and options
 
-        // set error name as constructor name
-        Object.defineProperty(this, 'name', {
-            // See for `new.target`: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new.target#new.target_in_constructors
-            value: new.target.name,
-            // native Error tpye is not enumerable either
-            enumerable: false,
-            configurable: true,
-        })
+    // Set the error name as the constructor name
+    Object.defineProperty(this, 'name', {
+      value: new.target.name,
+      // Uses the name of the class that extends LibhackCustomError as the error name
+      enumerable: false, // Ensures the name property is not enumerable
+      configurable: true, // Allows the name property to be configurable
+    });
 
-        // Restore prototype chain:
-        // workaround when extending builtin objects and when compiling to ES5, see:
-        // https://github.com/microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
-        if (typeof Object.setPrototypeOf === 'function') {
-            Object.setPrototypeOf(this, new.target.prototype)
-        } else {
-            // IE11
-            ;(this as any).__proto__ = new.target.prototype
-        }
-
-        // make stack traces work
-        if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, this.constructor)
-        }
+    // Restore prototype chain
+    // This is a workaround for extending built-in objects and for compatibility with ES5
+    if (typeof Object.setPrototypeOf === 'function') {
+      Object.setPrototypeOf(this, new.target.prototype);
+    } else {
+      // For older environments like IE11
+      (this as any).__proto__ = new.target.prototype;
     }
+
+    // Make stack traces work correctly
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, this.constructor);
+    }
+  }
 }
