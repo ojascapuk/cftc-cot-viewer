@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <div className="mt-5 flex flex-row justify-center gap-3 bg-slate-500 pt-20 pb-5">
-            <div className="text-gray-900">&copy;2023 Zelly Snyder</div>
+            <div className="text-gray-900">&copy;2024 Ojas Capital Limited</div>
             <a
                 href="https://github.com/proprietary/cftc-cot-viewer"
                 target="_blank"
