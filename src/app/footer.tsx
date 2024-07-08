@@ -3,7 +3,7 @@ export default function Footer() {
         <div className="mt-5 flex flex-row justify-center gap-3 bg-slate-500 pt-20 pb-5">
             <div className="text-gray-900">&copy;2024 Ojas Capital Limited</div>
             <a
-                href="https://github.com/proprietary/cftc-cot-viewer"
+                href="https://github.com/ojascapuk/cftc-cot-viewer"
                 target="_blank"
             >
                 <svg viewBox="0 0 24 24" className="h-6 w-6 fill-slate-900">
