@@ -1,3 +1,5 @@
+// This file creates the footer of the actual COT Report Page.
+
 export default function Footer() {
     return (
         <div className="mt-5 flex flex-row justify-center gap-3 bg-slate-500 pt-20 pb-5">
