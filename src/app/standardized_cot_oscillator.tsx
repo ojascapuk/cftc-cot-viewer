@@ -10,6 +10,8 @@ Data Processing: Functions extractRawNetPositioning and extractZscoredPositionin
 Chart Configuration: The computeSeries and genEchartsOption functions configure the chart options and data series based on user selections.
 User Interaction: Provides handlers for changing normalization methods and lookback periods, and toggles the settings visibility.
 Rendering: Renders the ECharts component and settings UI, with conditional rendering for settings.
+
+*** This is the lynchpin that I need to update to display diffrent custom graphs  *****
 */
 
 'use client';
